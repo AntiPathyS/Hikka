@@ -80,4 +80,4 @@ class CalcMod(loader.Module):
    case "кал":
     await commands.calc(message, parts[1], parts[2], parts[3]); 
    case "к":   
-    await commands.calc(message, parts[1], parts[2], parts[3]);
+    await
