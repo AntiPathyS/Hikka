@@ -24,7 +24,7 @@ class commands:
   new_message, ability_string, price = "", "", 0;
 
   for i in range(int(fromlvl), int(tolvl)):
-   match ability:
+  match ability:
     case ("заразность"|"зараз"|"зз"):
      price += (i + 1)**2.5;
      ability_string = "✅ Усиление заразности патогена";
