@@ -279,7 +279,7 @@ class BioMod(loader.Module):
         args = utils.get_args_raw(message)
         if not args:
             vlad = reply.sender_id
-            hui = f'<code>/заразить 10 @{vlad}<code>\nспасибо <emoji document_id=5215327827745839526>❤️</emoji>'
+            hui = f'<code>заразить 10 @{vlad}<code>\nспасибо <emoji document_id=5215327827745839526>❤️</emoji>'
             
 
 
@@ -323,7 +323,7 @@ class BioMod(loader.Module):
                                 )
                             else:
                                 await message.client.send_message(message.peer_id, 
-                                    f'<code>/заразить 1 {users}</code>\n<code>/купить вакцину</code>',
+                                    f'<code>заразить {users}</code>\n<code>.купить вакцину</code>',
                                     reply_to=reply)
                         elif link.startswith('https://t.me'):
                             a = '@' + str(link.split('/')[3])
@@ -336,7 +336,7 @@ class BioMod(loader.Module):
                                 )
                             else:
                                 await message.client.send_message(message.peer_id, 
-                                    f'<code>/заразить 1 {a}</code>\n<code>/купить вакцину</code>',
+                                    f'<code>заразить {a}</code>\n<code>.купить вакцину</code>',
                                     reply_to=reply)
                         else:
                             await message.reply(
@@ -384,7 +384,7 @@ class BioMod(loader.Module):
                                     )
                                 )
                         else:
-                            await message.reply(f'/заразить {users}')
+                            await message.reply(f'заразить {users}')
                     elif link.startswith('https://t.me'):
                         a = '@' + str(link.split("/")[3])
                         if a in exlist:
@@ -394,7 +394,7 @@ class BioMod(loader.Module):
                                     )
                                 )
                         else:
-                            await message.reply(f'/заразить {a}')
+                            await message.reply(f'заразить {a}')
                     else:
                         await message.reply(
                             self.strings("hueta")
@@ -408,7 +408,7 @@ class BioMod(loader.Module):
                                 )
                             )
                     else:
-                        await message.reply(f"/заразить {blayt}")
+                        await message.reply(f"заразить {blayt}")
                 await asyncio.sleep(3.3)
         
         except TypeError:
