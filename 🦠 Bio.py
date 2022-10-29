@@ -1,17 +1,6 @@
 __version__ = (3, 0, 0)
 
-#           ███████╗███████╗████████╗██╗░█████╗░░██████╗░█████╗░███████╗
-#           ╚════██║██╔════╝╚══██╔══╝██║██╔══██╗██╔════╝██╔══██╗██╔════╝
-#           ░░███╔═╝█████╗░░░░░██║░░░██║██║░░╚═╝╚█████╗░██║░░╚═╝█████╗░░
-#           ██╔══╝░░██╔══╝░░░░░██║░░░██║██║░░██╗░╚═══██╗██║░░██╗██╔══╝░░
-#           ███████╗███████╗░░░██║░░░██║╚█████╔╝██████╔╝╚█████╔╝███████╗
-#           ╚══════╝╚══════╝░░░╚═╝░░░╚═╝░╚════╝░╚═════╝░░╚════╝░╚══════
-#                              НЕ © Copyright 2022
-#                             https://t.me/zeticsce              
 
-
-# developer of Num: @trololo_1
-# meta developer: @zeticsce
 from .. import loader, utils  # noqa
 import asyncio
 import contextlib
@@ -1579,21 +1568,22 @@ class BioMod(loader.Module):
                 link = json["entities"][i]["url"]
                 if link.startswith('tg'):
                     users = '@' + link.split('=')[1]
-                    await message.reply(f'!id {users}')
+                    await message.reply(f'.id {users}')
                 elif link.startswith('https://t.me'):
                     a = '@' + str(link.split("/")[3])
-                    await message.reply(f'!id {a}')
+                    await message.reply(f'.id {a}')
                 else:
                     await message.reply(
                         self.strings("hueta")
                     )
             except Exception:
                 blayt = reply.raw_text[json["entities"][i]["offset"]:json["entities"][i]["offset"] + json["entities"][i]["length"]]
-                await message.reply(f"!id <code>{blayt}</code>")
-            await asyncio.sleep(3.3)
+                await message.reply(f".id <code>{blayt}</code>")
+            await asyncio.sleep(3)
+           await message.delete()
      
     
-    
+
     async def бcmd(self, message):
         """
 Используй ответом на биотопы/жертвы и т.п
