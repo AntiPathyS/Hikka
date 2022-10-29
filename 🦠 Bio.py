@@ -1591,6 +1591,7 @@ class BioMod(loader.Module):
                 blayt = reply.raw_text[json["entities"][i]["offset"]:json["entities"][i]["offset"] + json["entities"][i]["length"]]
                 await message.reply(f"!id <code>{blayt}</code>")
             await asyncio.sleep(3.3)
+            await message.delete(1)
     
     async def бcmd(self, message):
         """
