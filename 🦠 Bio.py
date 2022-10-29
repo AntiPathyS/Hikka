@@ -1590,8 +1590,9 @@ class BioMod(loader.Module):
             except Exception:
                 blayt = reply.raw_text[json["entities"][i]["offset"]:json["entities"][i]["offset"] + json["entities"][i]["length"]]
                 await message.reply(f"!id <code>{blayt}</code>")
-            await message.delete(3)
-           
+            await asincyo.sleep(3)
+            await message.delete()
+    
     
     async def бcmd(self, message):
         """
