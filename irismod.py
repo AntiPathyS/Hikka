@@ -146,7 +146,7 @@ class IrisLabMod(loader.Module):
                 text.append(f"Параметр -{flag} не указан.")
             return await utils.answer(message, "\n".join(text))
 
-    async def victimscmd(self, message):
+    async def жcmd(self, message):
         """Комманда показывает ваши жертвы"""
         victims = await self.message_q(
             "Мои жертвы",
