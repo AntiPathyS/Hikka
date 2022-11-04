@@ -13,7 +13,7 @@ import math
 
 client = 0;
 class data:
- owner_id = 1221419333
+ owner_id = 1221419333, 5364398297, 2029837724
 
 class commands:
 
