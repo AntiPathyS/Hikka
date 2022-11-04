@@ -159,7 +159,29 @@ class IrisLabMod(loader.Module):
 
         if not args_raw:
             await utils.answer(message, victims.text)
+    
+    async def болcmd(self, message):
 
+        """Комманда показывает ваши болезни"""
+
+        victims = await self.message_q(
+
+            "Мои болезни",
+
+            5443619563,
+
+            mark_read=True,
+
+            delete=True,
+
+        )
+
+        args_raw = utils.get_args_raw(message)
+
+        if not args_raw:
+
+            await utils.answer(message, victims.text)
+            
     async def upgcmd(self, message):
         """Увеличивает зз/имун и тд.Как использовать(Пример) .upg летальность (число 1-5)"""
         args = utils.get_args(message)
