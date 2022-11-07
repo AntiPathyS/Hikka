@@ -1158,7 +1158,7 @@ class BioMod(loader.Module):
                 send_mesа['z'] = 'заразить '
                 send_mesа['lvl'] = send_mesа['lvl'] or ''
                 mes = ''.join(send_mesа.values())
-                await message.reply(mes)
+                await message.respond(mes)
 
             #if send_mesа := re.search(
             #    r"(?P<eb>бей\s|еб\s)(?P<lvl>[1-9]?[0]?\s)", text):
@@ -1261,7 +1261,7 @@ class BioMod(loader.Module):
         
         if self.config["Доступ к жертвам"] == True:  
             if re.search(r"жертв[ыау]{,2}|еж[ау]{,2}", text, flags=re.ASCII):
-                await message.reply('мои жертвы')
+                await message.respond('мои жертвы')
 
         if self.config["Доступ к вирусам"] == True:  
             if re.search(r"-вирус[ыа]{,2}", text):
@@ -1271,7 +1271,7 @@ class BioMod(loader.Module):
         
         if self.config["Доступ к хиллингу"] == True:    
             if re.search(r"вак[цинау]{,3}|леч[ись]{,2}|хи[лльсяйинг]{,2}|лек[арство]{,2}", text, flags=re.ASCII):
-                await message.reply('.купить вакцину')
+                await message.respond('.купить вакцину')
             if re.search(r"цен[ау]{,2}|вч[ек]{,2}", text):
                 await message.reply('<i>купить вакцину</i>')
         toxt = text.replace(f"{nik} ", "")
