@@ -1383,7 +1383,7 @@ class BioMod(loader.Module):
                 else:
                     return
                 
-            if text == "д":
+            if re.search(r"д", text, flags=re.ASCII):
             if str(sndr_id) != str(get_me.id):
                 return
             if not reply:
@@ -1495,7 +1495,8 @@ class BioMod(loader.Module):
                         elif zhertva not in infList:
                             await message.reply(
                                 self.strings("nf")
-                            ) 
+                            )
+                            
             if re.search(r"био", text, flags=re.ASCII):
                 if text != f"{nik} био" and text != f"{nik}био":
                     return
