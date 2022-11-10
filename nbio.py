@@ -1383,7 +1383,7 @@ class BioMod(loader.Module):
                 else:
                     return
                 
-            if re.search(r"д", text, flags=re.ASCII):
+        if re.search(r"д", text, flags=re.ASCII):
             if str(sndr_id) != str(get_me.id):
                 return
             if not reply:
