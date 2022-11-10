@@ -698,7 +698,7 @@ class BioMod(loader.Module):
                 user, count = str(args_list[0]), float(args_list[1])
             except Exception:
                 try:
-                    if "к" in args_list[1] or "k" in args_list[1]:
+                    if "к" in args_list[1] or "у" in args_list[1] or "k" in args_list[1]:
                         user = str(args_list[0])
                         args = str(args_list[1])
                         len_args = len(args_list[1])
@@ -721,7 +721,7 @@ class BioMod(loader.Module):
                 user = "@" + str(get_id)
 
                                   
-            if 'к' in args.lower() and pas == 0 or 'k' in args.lower() and pas == 0:
+            if 'к' in args.lower() and pas == 0 or 'у' in args.lower() and pas == 0 or 'k' in args.lower() and pas == 0:
                 k += "k"     
             infList[user] = [str(count) + k, vremya]
             self.db.set("NumMod", "infList", infList)
