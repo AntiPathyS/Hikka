@@ -1440,7 +1440,7 @@ class BioMod(loader.Module):
                     return await message.reply(
                         self.strings("wrong_cmd")
                     )                
-            if re.fullmatch(r"@\D{3,32}\w{3,32}", user, flags=re.ASCII):
+            if re.search(r"жд", user, flags=re.ASCII):
                 get_id = await message.client.get_entity(user)
                 get_id = get_id.id
                 user = "@" + str(get_id)
