@@ -254,7 +254,7 @@ class BioMod(loader.Module):
 (без них бьет по ответу с 10 патов)
         """
         
-        respond = await message.get_respond_message()
+        respond = await message.respond
         exlist = self.db.get("NumMod", "exUsers")
         count_st = 0
         count_hf = 0
@@ -288,7 +288,7 @@ class BioMod(loader.Module):
                     return
             else:
                 list_args.append(i)
-        a = reply.text
+        a = respond.text
         lis = a.splitlines()
         for start in list_args:
             for x in lis:
