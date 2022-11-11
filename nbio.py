@@ -1383,77 +1383,8 @@ class BioMod(loader.Module):
                 else:
                     return
                 
-        if re.search(r"д", text, flags=re.ASCII):
-           
-            if str(sndr_id) != str(get_me.id):
-                return
-            if not reply:
-                return await message.reply(
-                    self.strings("no_zar_reply")
-                )
-            trueZ = 'подверг заражению'
-            trueZ2 = 'подвергла заражению' # да, я еблан)
-            text = reply.text
-            if trueZ not in reply.text and trueZ2 not in reply.text:
-                return await message.reply(
-                    self.strings("wrong_zar_reply")
-                )
-            try:
-                ept = ""
-                text = reply.text
-                x = text.index('☣') + 4
-                count = text[x:].split(' ', maxsplit=1)[0]
-                x = text.index('user?id=') + 8
-                user = '@' + text[x:].split('"', maxsplit=1)[0]
-                infList[user] = [str(count), vremya]
-                self.db.set("NumMod", "infList", infList)
-                await message.reply(
-                    self.strings("r.save").format(
-                        user, count, ept
-                    )
-                )
-            except ValueError:
-                await message.reply(
-                    self.strings("nolink")
-                )
-
-        if re.search(r"уд", text, flags=re.ASCII):
-            if str(sndr_id) != str(get_me.id):
-                return            
-            k = ''
-            pas = 0
-            try:
-                user, count = str(args[0]), float(args[1])
-            except Exception:
-                try:
-                    if "к" in args[1] or "k" in args[1] or "," in args:
-                        count = args[1].replace("k", "").replace("к", "").replace(",", ".")
-                        count = float(count)
-                        user = str(args[0])
-                        k += 'k'
-                        pas = 1
-                    else: 
-                        return await message.reply(
-                            self.strings("wrong_cmd")
-                        )
-                except: 
-                    return await message.reply(
-                        self.strings("wrong_cmd")
-                    )                
-            if re.fullmatch(r"@\D{3,32}\w{3,32}", user, flags=re.ASCII):
-                get_id = await message.client.get_entity(user)
-                get_id = get_id.id
-                user = "@" + str(get_id)
-
-            if 'к' in args and pas == 0 or 'k' in args and pas == 0:
-                k += "k"     
-            infList[user] = [str(count) + k, vremya]
-            self.db.set("NumMod", "infList", infList)
-            await message.reply(
-                self.strings("r.save").format(
-                            user, count, k
-                )
-            ) 
+        
+            
             
             if re.search(r"сб", text, flags=re.ASCII):
                 if text != f"{nik} сб" and text != f"{nik}сб":
