@@ -254,7 +254,7 @@ class BioMod(loader.Module):
 (без них бьет по ответу с 10 патов)
         """
         
-        respond = await message.respond
+        reply = await message.get_reply_message()
         exlist = self.db.get("NumMod", "exUsers")
         count_st = 0
         count_hf = 0
@@ -288,7 +288,7 @@ class BioMod(loader.Module):
                     return
             else:
                 list_args.append(i)
-        a = respond.text
+        a = reply.text
         lis = a.splitlines()
         for start in list_args:
             for x in lis:
@@ -310,12 +310,12 @@ class BioMod(loader.Module):
                                     self.strings("ex").format(
                                     users
                                     ),
-                                    respond_to=respond
+                                    reply_to=reply
                                 )
                             else:
                                 await message.client.send_message(message.peer_id, 
                                     f'заразить {users}',
-                                    respond_to=respond)
+                                    reply_to=reply)
                         elif link.startswith('https://t.me'):
                             a = '@' + str(link.split('/')[3])
                             if a in exlist:
@@ -323,12 +323,12 @@ class BioMod(loader.Module):
                                     self.strings("ex").format(
                                     users
                                     ),
-                                    respond_to=respond
+                                    reply_to=reply
                                 )
                             else:
                                 await message.client.send_message(message.peer_id, 
                                     f'заразить {a}',
-                                    respond_to=respond)
+                                    reply_to=reply)
                         else:
                             await message.reply(
                                 self.strings("hueta")
