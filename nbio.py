@@ -1876,6 +1876,7 @@ class BioMod(loader.Module):
                 "Автосохранение жертв",
                 True,
                 "Вкл/выкл автосохранение жертв в зарлист.",
+                "\n❗Поставьте юзер, чтобы работало.",
                 validator=loader.validators.Boolean(),
             ),
             loader.ConfigValue(
