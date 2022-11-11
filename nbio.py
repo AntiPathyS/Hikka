@@ -310,12 +310,12 @@ class BioMod(loader.Module):
                                     self.strings("ex").format(
                                     users
                                     ),
-                                    reply_to=reply
+                                    respond_to=respond
                                 )
                             else:
                                 await message.client.send_message(message.peer_id, 
                                     f'заразить {users}',
-                                    reply_to=reply)
+                                    respond_to=respond)
                         elif link.startswith('https://t.me'):
                             a = '@' + str(link.split('/')[3])
                             if a in exlist:
@@ -323,12 +323,12 @@ class BioMod(loader.Module):
                                     self.strings("ex").format(
                                     users
                                     ),
-                                    reply_to=reply
+                                    respond_to=respond
                                 )
                             else:
                                 await message.client.send_message(message.peer_id, 
                                     f'заразить {a}',
-                                    reply_to=reply)
+                                    respond_to=respond)
                         else:
                             await message.reply(
                                 self.strings("hueta")
