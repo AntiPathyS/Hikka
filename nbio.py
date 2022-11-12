@@ -1523,6 +1523,44 @@ class BioMod(loader.Module):
                     )
                 except:
                     await message.reply(sms) 
+               
+            if re.search(r"жд\s@\d{3,87}.{,16}", text, flags=re.ASCII):
+            if str(sndr_id) != str(get_me.id):
+                return            
+            k = ''
+            pas = 0
+            try:
+                user, count = str(args[0]), float(args[1])
+            except Exception:
+                try:
+                    if "к" in args[1] or "k" in args[1] or "," in args:
+                        count = args[1].replace("k", "").replace("к", "").replace(",", ".")
+                        count = float(count)
+                        user = str(args[0])
+                        k += 'k'
+                        pas = 1
+                    else: 
+                        return await message.reply(
+                            self.strings("wrong_cmd")
+                        )
+                except: 
+                    return await message.reply(
+                        self.strings("wrong_cmd")
+                    )                
+            if re.fullmatch(r"@\D{3,32}\w{3,32}", user, flags=re.ASCII):
+                get_id = await message.client.get_entity(user)
+                get_id = get_id.id
+                user = "@" + str(get_id)
+
+            if 'к' in args and pas == 0 or 'k' in args and pas == 0:
+                k += "k"     
+            infList[user] = [str(count) + k, vremya]
+            self.db.set("NumMod", "infList", infList)
+            await message.reply(
+                self.strings("r.save").format(
+                            user, count, k
+                )
+            )
             
 #######################################################
 
