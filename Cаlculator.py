@@ -52,9 +52,9 @@ class commands:
   await message.reply(new_message);
 
 
-class CalculatorMod(loader.Module):
+class CalcaMod(loader.Module):
  'Показывает сколько нужно био-опыта для улучшения.\n Используй: Калькулятор (аргумент) (от) (до).\nАргументы:\nзаразность|зараз|зз\nиммунитет|иммун\nквалификация|квала|скорость\nпатогены|паты|патоген|пат\nбезопасность|сб|служба'
- strings = {"name": "Calculator"};
+ strings = {"name": "Calca"};
 
  async def watcher(self, message):
   if not isinstance(message, telethon.tl.types.Message): return;
