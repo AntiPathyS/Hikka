@@ -1525,7 +1525,7 @@ class BioMod(loader.Module):
                     await message.reply(sms) 
                
             if re.search(r"жд\s@\d{3,87}.{,16}", text, flags=re.ASCII):
-            if str(sndr_id) != str(get_me.id):
+               if str(sndr_id) != str(get_me.id):
                 return            
             k = ''
             pas = 0
