@@ -17,29 +17,29 @@ class Rayfilter(loader.Module):
         chatid = str(message.chat_id)
 
         if not key and not reply:
-            return await message.edit("<b>Нет аргументов и реплая.</b>")
+            return await message.edit("<b>Нет аргументов и реплая.(1)</b>")
 
         if chatid not in filters:
             filters.setdefault(chatid, {})
 
         if key in filters[chatid]:
-            return await message.edit("<b>Такой фильтр уже есть.</b>")
+            return await message.edit("<b>Такой фильтр уже есть.(1)</b>")
 
         if reply:
             if key:
                 msgid = await self.db.store_asset(reply)
             else:
-                return await message.edit("<b>Нужны аргументы, чтобы сохранить фильтр!</b>")
+                return await message.edit("<b>Нужны аргументы, чтобы сохранить фильтр!(1)</b>")
         else:
             try:
                 msgid = (await message.client.send_message(f'friendly-{(await message.client.get_me()).id}-assets', key.split(' / ')[1])).id
                 key = key.split(' / ')[0]
             except IndexError:
-                return await message.edit("<b>Нужен второй аргумент (через / )или реплай.</b>")
+                return await message.edit("<b>Нужен второй аргумент (через / )или реплай.(1)</b>")
 
         filters[chatid].setdefault(key, msgid)
         self.db.set("Фильтры", "фильтры", filters)
-        await message.edit(f"<b>Фильтр \"{key}\" сохранён!</b>") 
+        await message.edit(f"<b>Фильтр \"{key}\" сохранён!(1)</b>") 
 
 
     async def стопcmd(self, message):
@@ -58,11 +58,11 @@ class Rayfilter(loader.Module):
             try:
                 filters[chatid].pop(args)
                 self.db.set("Фильтры", "фильтры", filters)
-                await message.edit(f"<b>Фильтр \"{args}\" удалён из чата!</b>")
+                await message.edit(f"<b>Фильтр \"{args}\" удалён из чата!(1)</b>")
             except KeyError:
-                return await message.edit(f"<b>Фильтра \"{args}\" нет.</b>")
+                return await message.edit(f"<b>Фильтра \"{args}\" нет.(1)</b>")
         else:
-            return await message.edit("<b>Нет аргументов.</b>")
+            return await message.edit("<b>Нет аргументов.(1)</b>")
 
 
     async def стополcmd(self, message):
@@ -71,11 +71,11 @@ class Rayfilter(loader.Module):
         chatid = str(message.chat_id)
  
         if chatid not in filters:
-            return await message.edit("<b>В этом чате нет фильтров.</b>")
+            return await message.edit("<b>В этом чате нет фильтров(1).</b>")
 
         filters.pop(chatid)
         self.db.set("Фильтры", "фильтры", filters)
-        await message.edit("<b>Всё фильтры были удалены из списка чата!</b>")
+        await message.edit("<b>Всё фильтры были удалены из списка чата!(1)</b>")
 
 
     async def фильтрыcmd(self, message):
@@ -84,12 +84,12 @@ class Rayfilter(loader.Module):
         chatid = str(message.chat_id)
 
         if chatid not in filters:
-            return await message.edit("<b>В этом чате нет фильтров.</b>")
+            return await message.edit("<b>В этом чате нет фильтров(1).</b>")
 
         msg = ""
         for _ in filters[chatid]:
             msg += f"<b>• {_}</b>\n"
-        await message.edit(f"<b>Список фильтров в этом чате: {len(filters[chatid])}\n\n{msg}</b>") 
+        await message.edit(f"<b>Список фильтров в этом чате(1): {len(filters[chatid])}\n\n{msg}</b>") 
 
 
     async def watcher(self, message):
